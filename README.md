@@ -2,45 +2,85 @@
 
 **Plan less. Start sooner.**
 
-StudentSuccess helps high-school students plan a manageable course load and decide which assignment to start next. It brings together four-year course planning, explained task priorities, and feedback on planned versus actual start times.
+StudentSuccess is an academic planner for high school and college students. It connects course planning with daily assignments: choose a manageable workload, break projects into steps, and see an explained recommendation for what to start next.
 
-**[Try StudentSuccess](https://studentsuccess.onrender.com/)** | [Screenshot gallery](docs/screenshots/README.md) | [Project updates](https://studentsuccess.onrender.com/updates)
+**[Open StudentSuccess](https://studentsuccess.onrender.com/)** | [Screenshot gallery](docs/screenshots/README.md) | [Project updates](https://studentsuccess.onrender.com/updates)
 
-> Public prototype: explore with fictional information only. The demo server may take about a minute to wake after inactivity.
+Choose **Start tutorial** on the live site for a guided, interactive practice workspace. No registration is required for the tutorial.
 
-## Take a look
+![StudentSuccess dashboard with a recommended next task](docs/screenshots/dashboard.png)
 
-![StudentSuccess landing page](docs/screenshots/landing.png)
+## What it does
 
-![StudentSuccess dashboard](docs/screenshots/dashboard.png)
+- **Explained task priorities.** Recommendations combine urgency tiers with explicit scoring rules for deadlines, effort, challenge, interest, and available start history. Students can inspect the reasoning; no AI or machine learning is involved.
+- **An organized task workspace.** Search tasks, switch between a prioritized queue and course groups, open parent assignments from subtasks, and keep completed work separate.
+- **Manageable projects.** Add subtasks or split an assignment into timed work blocks. Track progress and optional actual minutes; estimates support up to 10,080 minutes.
+- **Flexible scheduling.** Reschedule from the task menu, use timezone-aware shortcuts, and undo a schedule change. Repeating assignments run through an inclusive end date; each occurrence can be edited independently. Reuse a task as a template or select multiple tasks for reviewed deletion.
+- **High school and dual enrollment.** Explore reference courses, compare up to three options, and build a four-year plan. Add college courses directly alongside high school courses.
+- **College planning across institutions.** Organize courses by term, credits, requirement category, and study workload. Each course can belong to a different college. Search the bundled IPEDS 2024 directory of 5,994 institutions by name or state.
+- **Progress feedback.** Review completed work, planned versus actual starts, and time estimates through summaries and graphs.
+- **Calendar tools.** Add a task deadline to Google Calendar, export active deadlines as an ICS file, or review assignments imported from a calendar file. These are manual copies, not automatic two-way sync.
+- **Personalization and accessibility.** Required onboarding sets education context, timezone, study budget, and preferences. Light, dark, and high-contrast themes, adjustable text and spacing, focus settings, and reduced-motion support adapt the notebook interface.
+- **Control over account data.** Export your data, clear completed history, or delete your account from Settings.
 
-[View all eleven screenshots](docs/screenshots/README.md), including two-column Settings, the course timeline, mobile layouts, and dark appearance.
+## See the current site
 
-## The current workspace
+Screenshots refreshed **September 30, 2026**, using isolated synthetic sample data. Desktop captures are 1440 x 960 (3:2); mobile captures are 390 x 844. These are actual application renders, not mockups.
 
-- **A notebook with depth.** Graph paper, layered paper edges, folded corners, soft shadows, and a paper-plane illustration. The landing-page example responds to pointer movement and lets you turn a large assignment into a small first step.
-- **A clearer next action.** See a short reason for each recommendation, why the top task comes before the next, and when recorded start history adds a priority nudge. Expand the point breakdown or start the task directly.
-- **Less scrolling.** Settings uses two columns on wide screens with a sticky Save button. Logout sits below dashboard navigation, and the desktop sidebar stays in view.
-- **Your preferred pace.** Light, dark, and high-contrast appearances; adjustable text, spacing, and focus; reduced-motion support; and expandable summaries on mobile.
+| Task planning | Integrated dual enrollment |
+| --- | --- |
+| ![Current task queue](docs/screenshots/tasks.png) | ![College courses in the high school preset](docs/screenshots/dual-enrollment.png) |
 
-## What you can do
+| Project steps | College term planning |
+| --- | --- |
+| ![Assignment with subtasks](docs/screenshots/subtasks.png) | ![College term courses across institutions](docs/screenshots/college.png) |
 
-- **Choose what to start next.** See task recommendations with plain-language reasons and start the top recommendation directly.
-- **Turn deadlines into a starting plan.** Track planned and actual starts, complete assignments, record actual duration, and review timing patterns. Recurring tasks and optional in-app reminders support ongoing work.
-- **Compare course options.** Try one-click comparison examples or select up to three courses. See workload tradeoffs, prerequisite and pathway differences, and grade listings. Show only differences and add a choice directly to your plan.
-- **Adjust your workspace.** Choose appearance, accessibility, focus, and reminder preferences.
-- **Keep control of your plan.** Export account data, download a calendar file, clear completed history, or delete your planner.
+[Browse all 15 screenshots](docs/screenshots/README.md), including the landing page, comparisons, four-year plan, Calendar tools, personalization, tutorial, and mobile views.
 
 ## Try it
 
-Choose **Try the fictional demo** to explore a populated sample workspace, or **Create a private planner** for a server-saved workspace without a name or email. Keep its generated access code safe: anyone with it can open the planner, and lost codes cannot be recovered.
+1. Visit [the live site](https://studentsuccess.onrender.com/) and choose **Start tutorial** to explore an isolated practice account. The guide demonstrates real controls; exiting removes the practice data.
+2. For a persistent planner, create a nickname-style username and password, then complete onboarding. No email, full name, or student ID is required.
+3. Add courses and assignments, then use the dashboard to choose a next step.
 
-An optional browser-only workspace stores its plan on your device and supports manual backups. It does not automatically sync with server accounts.
+Save your credentials: email password recovery is not available. Actual course names and everyday tasks are welcome; leave out full names, student IDs, contact details, and sensitive records. The entry acknowledgment is not automatic detection or redaction.
 
-No automatic welcome popup interrupts browsing. Open **How this works & privacy** whenever you need the explanation. Free-text submissions require confirmation that they contain no personal information; this is a user acknowledgment, not automatic detection.
+The optional [/planner](https://studentsuccess.onrender.com/planner) workspace stores its plan in the browser. It is separate from server accounts and does not automatically sync with them. Legacy private-code users have a one-time transfer path; private codes are not the current sign-in method.
 
-## About this showcase
+## How recommendations work
 
-This repository contains product information and screenshots only. The application source is maintained privately.
+Active leaf tasks are ordered by **in progress > overdue > missed planned start > due within 24 hours > upcoming**. Within a tier, the score considers deadlines, estimated effort, challenge, interest, and sufficient recorded start history. Deadline, planned start, and stable task identifiers break remaining ties.
 
-StudentSuccess is a prototype. Recommendations use explicit rules, not AI or machine learning. Course coverage varies, and workload labels are planning estimates. Confirm course availability and requirements with your school counselor. Use fictional information only.
+Tiers take precedence over scores. For example, a missed planned start can rank above a task due within 24 hours. That tradeoff is documented for further student testing.
+
+- [Priority and tier rules](https://github.com/JVijay08/StudentSuccess/blob/main/services/task_policy.py)
+- [Score calculation](https://github.com/JVijay08/StudentSuccess/blob/main/services/procrastination_service.py)
+- [Recommendation ordering and explanations](https://github.com/JVijay08/StudentSuccess/blob/main/services/suggestion_service.py)
+- [Ranking policy and evaluation plan](https://github.com/JVijay08/StudentSuccess/blob/main/docs/ranking-policy-review.md)
+
+## Source code and local setup
+
+This repository is the product showcase. The application source is now public in
+[JVijay08/StudentSuccess](https://github.com/JVijay08/StudentSuccess), including
+installation instructions, tests, data references, and deployment configuration.
+
+## Scope and limits
+
+Course catalogs include national references, AP/IB, and selected state/local sources. Coverage varies; a state filter does not promise a complete statewide catalog. Some imported entries are held out pending source verification. The institution directory is not a complete database of every college's courses; students can enter their own course details.
+
+Workload labels and recommendations are planning aids, not official academic advice, graduation audits, or admissions predictions. Verify offerings and requirements with your institution. Future work includes catalog verification, continued usability testing, and evaluating scheduling tradeoffs. AI assistance and automatic Calendar synchronization are not implemented.
+
+## Technical details
+
+Built with **Flask, Jinja, SQLAlchemy, PostgreSQL/SQLite, and vanilla JavaScript/CSS**. The interface uses graph paper, layered surfaces, clear controls, and motion that respects reduced-motion preferences.
+
+- [Architecture](https://github.com/JVijay08/StudentSuccess/blob/main/docs/architecture.md)
+- [Account setup](https://github.com/JVijay08/StudentSuccess/blob/main/docs/account-setup.md) and [privacy notes](https://github.com/JVijay08/StudentSuccess/blob/main/docs/privacy_notes.md)
+- [Course data sources](https://github.com/JVijay08/StudentSuccess/blob/main/docs/data_sources.md) and [college planning](https://github.com/JVijay08/StudentSuccess/blob/main/docs/college-planning.md)
+- [Tutorial, recurrence, and Calendar behavior](https://github.com/JVijay08/StudentSuccess/blob/main/docs/tutorial-and-calendar.md)
+- [SEO configuration](https://github.com/JVijay08/StudentSuccess/blob/main/docs/seo.md)
+- [Feedback implementation record](https://github.com/JVijay08/StudentSuccess/blob/main/docs/feedback-test-1-implementation.md) - dated engineering history
+
+## License
+
+The application is [MIT licensed](https://github.com/JVijay08/StudentSuccess/blob/main/LICENSE).
