@@ -1,86 +1,145 @@
-# StudentSuccess
+# StudentSuccess: a visual walkthrough
 
 **Plan less. Start sooner.**
 
-StudentSuccess is an academic planner for high school and college students. It connects course planning with daily assignments: choose a manageable workload, break projects into steps, and see an explained recommendation for what to start next.
+An academic planner connecting course choices with daily work for high school, college, and dual-enrollment students.
 
-**[Open StudentSuccess](https://studentsuccess.onrender.com/)** | [Screenshot gallery](docs/screenshots/README.md) | [Project updates](https://studentsuccess.onrender.com/updates)
+**[Try the live site](https://studentsuccess.onrender.com/)** | **[Source code and setup](https://github.com/JVijay08/StudentSuccess)** | [Full image gallery](docs/screenshots/README.md)
 
-Choose **Start tutorial** on the live site for a guided, interactive practice workspace. No registration is required for the tutorial.
+This showcase is a tour of the product through **20 current screenshots**. For architecture, algorithms, tests, and installation, use the [main repository](https://github.com/JVijay08/StudentSuccess).
 
-![StudentSuccess dashboard with a recommended next task](docs/screenshots/dashboard.png)
+Captured September 30, 2026 from the current application with synthetic sample data. Desktop images are 1440 x 960 (3:2); mobile images retain their phone proportions. Click any image to view it at full size.
 
-## What it does
+## Start with a clear next step
 
-- **Explained task priorities.** Recommendations combine urgency tiers with explicit scoring rules for deadlines, effort, challenge, interest, and available start history. Students can inspect the reasoning; no AI or machine learning is involved.
-- **An organized task workspace.** Search tasks, switch between a prioritized queue and course groups, open parent assignments from subtasks, and keep completed work separate.
-- **Manageable projects.** Add subtasks or split an assignment into timed work blocks. Track progress and optional actual minutes; estimates support up to 10,080 minutes.
-- **Flexible scheduling.** Reschedule from the task menu, use timezone-aware shortcuts, and undo a schedule change. Repeating assignments run through an inclusive end date; each occurrence can be edited independently. Reuse a task as a template or select multiple tasks for reviewed deletion.
-- **High school and dual enrollment.** Explore reference courses, compare up to three options, and build a four-year plan. Add college courses directly alongside high school courses.
-- **College planning across institutions.** Organize courses by term, credits, requirement category, and study workload. Each course can belong to a different college. Search the bundled IPEDS 2024 directory of 5,994 institutions by name or state.
-- **Progress feedback.** Review completed work, planned versus actual starts, and time estimates through summaries and graphs.
-- **Calendar tools.** Add a task deadline to Google Calendar, export active deadlines as an ICS file, or review assignments imported from a calendar file. These are manual copies, not automatic two-way sync.
-- **Personalization and accessibility.** Required onboarding sets education context, timezone, study budget, and preferences. Light, dark, and high-contrast themes, adjustable text and spacing, focus settings, and reduced-motion support adapt the notebook interface.
-- **Control over account data.** Export your data, clear completed history, or delete your account from Settings.
+The notebook-style landing page introduces the planner and provides a no-registration interactive tutorial.
 
-## See the current site
+[![Start with a clear next step](docs/screenshots/landing.png)](docs/screenshots/landing.png)
 
-Screenshots refreshed **September 30, 2026**, using isolated synthetic sample data. Desktop captures are 1440 x 960 (3:2); mobile captures are 390 x 844. These are actual application renders, not mockups.
+## Your day, in focus
 
-| Task planning | Integrated dual enrollment |
-| --- | --- |
-| ![Current task queue](docs/screenshots/tasks.png) | ![College courses in the high school preset](docs/screenshots/dual-enrollment.png) |
+See the task currently in progress and what comes next. Task menus keep secondary actions out of the way.
 
-| Project steps | College term planning |
-| --- | --- |
-| ![Assignment with subtasks](docs/screenshots/subtasks.png) | ![College term courses across institutions](docs/screenshots/college.png) |
+[![Your day, in focus](docs/screenshots/dashboard-current-2026-09-30.png)](docs/screenshots/dashboard-current-2026-09-30.png)
 
-[Browse all 15 screenshots](docs/screenshots/README.md), including the landing page, comparisons, four-year plan, Calendar tools, personalization, tutorial, and mobile views.
+## A prioritized task queue
 
-## Try it
+Find assignments in one place, ordered by explained rules. Completed work has its own section.
 
-1. Visit [the live site](https://studentsuccess.onrender.com/) and choose **Start tutorial** to explore an isolated practice account. The guide demonstrates real controls; exiting removes the practice data.
-2. For a persistent planner, create a nickname-style username and password, then complete onboarding. No email, full name, or student ID is required.
-3. Add courses and assignments, then use the dashboard to choose a next step.
+[![A prioritized task queue](docs/screenshots/tasks.png)](docs/screenshots/tasks.png)
 
-Save your credentials: email password recovery is not available. Actual course names and everyday tasks are welcome; leave out full names, student IDs, contact details, and sensitive records. The entry acknowledgment is not automatic detection or redaction.
+## See work by course
 
-The optional [/planner](https://studentsuccess.onrender.com/planner) workspace stores its plan in the browser. It is separate from server accounts and does not automatically sync with them. Legacy private-code users have a one-time transfer path; private codes are not the current sign-in method.
+Group assignments and project steps by subject when you want the bigger picture.
 
-## How recommendations work
+[![See work by course](docs/screenshots/tasks-by-course.png)](docs/screenshots/tasks-by-course.png)
 
-Active leaf tasks are ordered by **in progress > overdue > missed planned start > due within 24 hours > upcoming**. Within a tier, the score considers deadlines, estimated effort, challenge, interest, and sufficient recorded start history. Deadline, planned start, and stable task identifiers break remaining ties.
+## Turn a project into smaller steps
 
-Tiers take precedence over scores. For example, a missed planned start can rank above a task due within 24 hours. That tradeoff is documented for further student testing.
+Break a large assignment into subtasks and track progress. Parent projects remain reachable from the queue.
 
-- [Priority and tier rules](https://github.com/JVijay08/StudentSuccess/blob/main/services/task_policy.py)
-- [Score calculation](https://github.com/JVijay08/StudentSuccess/blob/main/services/procrastination_service.py)
-- [Recommendation ordering and explanations](https://github.com/JVijay08/StudentSuccess/blob/main/services/suggestion_service.py)
-- [Ranking policy and evaluation plan](https://github.com/JVijay08/StudentSuccess/blob/main/docs/ranking-policy-review.md)
+[![Turn a project into smaller steps](docs/screenshots/subtasks.png)](docs/screenshots/subtasks.png)
 
-## Source code and local setup
+## Adjust your starting plan
 
-This repository is the product showcase. The application source is now public in
-[JVijay08/StudentSuccess](https://github.com/JVijay08/StudentSuccess), including
-installation instructions, tests, data references, and deployment configuration.
+Open the task menu to reschedule. Planned starts and deadlines are separate, and schedule changes offer an undo window.
 
-## Scope and limits
+[![Adjust your starting plan](docs/screenshots/rescheduling.png)](docs/screenshots/rescheduling.png)
 
-Course catalogs include national references, AP/IB, and selected state/local sources. Coverage varies; a state filter does not promise a complete statewide catalog. Some imported entries are held out pending source verification. The institution directory is not a complete database of every college's courses; students can enter their own course details.
+## Keep a record of finished work
 
-Workload labels and recommendations are planning aids, not official academic advice, graduation audits, or admissions predictions. Verify offerings and requirements with your institution. Future work includes catalog verification, continued usability testing, and evaluating scheduling tradeoffs. AI assistance and automatic Calendar synchronization are not implemented.
+Review completed assignments and estimated versus actual time without cluttering the active queue.
 
-## Technical details
+[![Keep a record of finished work](docs/screenshots/completed-tasks.png)](docs/screenshots/completed-tasks.png)
 
-Built with **Flask, Jinja, SQLAlchemy, PostgreSQL/SQLite, and vanilla JavaScript/CSS**. The interface uses graph paper, layered surfaces, clear controls, and motion that respects reduced-motion preferences.
+## Manage several tasks together
 
-- [Architecture](https://github.com/JVijay08/StudentSuccess/blob/main/docs/architecture.md)
-- [Account setup](https://github.com/JVijay08/StudentSuccess/blob/main/docs/account-setup.md) and [privacy notes](https://github.com/JVijay08/StudentSuccess/blob/main/docs/privacy_notes.md)
-- [Course data sources](https://github.com/JVijay08/StudentSuccess/blob/main/docs/data_sources.md) and [college planning](https://github.com/JVijay08/StudentSuccess/blob/main/docs/college-planning.md)
-- [Tutorial, recurrence, and Calendar behavior](https://github.com/JVijay08/StudentSuccess/blob/main/docs/tutorial-and-calendar.md)
-- [SEO configuration](https://github.com/JVijay08/StudentSuccess/blob/main/docs/seo.md)
-- [Feedback implementation record](https://github.com/JVijay08/StudentSuccess/blob/main/docs/feedback-test-1-implementation.md) - dated engineering history
+Select multiple tasks, then review the deletion before confirming.
 
-## License
+[![Manage several tasks together](docs/screenshots/bulk-selection.png)](docs/screenshots/bulk-selection.png)
 
-The application is [MIT licensed](https://github.com/JVijay08/StudentSuccess/blob/main/LICENSE).
+## Explore high school courses
+
+Browse reference catalogs and compare options. Catalog coverage varies by location and source.
+
+[![Explore high school courses](docs/screenshots/courses.png)](docs/screenshots/courses.png)
+
+## Compare the tradeoffs
+
+Compare up to three courses by their reference prerequisites, workload labels, and other characteristics.
+
+[![Compare the tradeoffs](docs/screenshots/comparison.png)](docs/screenshots/comparison.png)
+
+## Plan across high school
+
+Place courses across grades 9 through 12 and review the planned load.
+
+[![Plan across high school](docs/screenshots/four-year-plan.png)](docs/screenshots/four-year-plan.png)
+
+## High school and college, together
+
+College courses sit within the high school course workspace. Each can belong to a different institution.
+
+[![High school and college, together](docs/screenshots/dual-enrollment.png)](docs/screenshots/dual-enrollment.png)
+
+## Plan a college term
+
+Organize courses across terms and institutions, with entered credits and weekly study workload.
+
+[![Plan a college term](docs/screenshots/college.png)](docs/screenshots/college.png)
+
+## Bring deadlines to your calendar
+
+Add deadlines to Google Calendar or use an ICS file. This copies events; it does not automatically synchronize changes.
+
+[![Bring deadlines to your calendar](docs/screenshots/calendar.png)](docs/screenshots/calendar.png)
+
+## Make the planner fit
+
+Required first-time setup establishes education context, timezone, study budget, and planning defaults.
+
+[![Make the planner fit](docs/screenshots/onboarding.png)](docs/screenshots/onboarding.png)
+
+## Personalize the workspace
+
+Adjust appearance, accessibility, planning behavior, and account controls.
+
+[![Personalize the workspace](docs/screenshots/settings.png)](docs/screenshots/settings.png)
+
+## Learn by using real controls
+
+An 18-section guide runs in a separate practice account. Explore freely and exit without changing your own plan.
+
+[![Learn by using real controls](docs/screenshots/tutorial.png)](docs/screenshots/tutorial.png)
+
+## Dark appearance
+
+An alternate appearance complements light and high-contrast options.
+
+[![Dark appearance](docs/screenshots/landing-dark.png)](docs/screenshots/landing-dark.png)
+
+## A mobile entry point
+
+The landing page adapts to a narrow screen.
+
+[![A mobile entry point](docs/screenshots/landing-mobile.png)](docs/screenshots/landing-mobile.png)
+
+## Your planner on a phone
+
+The same task workflow is available at a mobile viewport.
+
+[![Your planner on a phone](docs/screenshots/mobile-dashboard.png)](docs/screenshots/mobile-dashboard.png)
+
+## Try it yourself
+
+Choose **Start tutorial** on the live site to explore an isolated practice workspace without registering. For a persistent planner, create a nickname-style username and password and complete onboarding. No email is required; save your credentials because email recovery is not available.
+
+Actual course names and everyday tasks are welcome. Leave out full names, student IDs, contact details, and sensitive records.
+
+## What these images demonstrate
+
+These are actual application renders, not design mockups. Sample history illustrates the interface, not measured student outcomes. Recommendations use explicit rules, not AI. Workload labels are planning estimates; confirm offerings and requirements with your institution.
+
+The institution directory contains 5,994 IPEDS 2024 entries. It is not a verified catalog of every college course. Calendar tools use manual copies rather than automatic synchronization.
+
+[Read the technical documentation and limitations](https://github.com/JVijay08/StudentSuccess#technical-details) | [View project updates](https://studentsuccess.onrender.com/updates)

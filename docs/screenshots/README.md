@@ -14,7 +14,7 @@ The notebook-style entry point with account creation and the interactive tutoria
 
 The recommended next task, clear actions, and supporting planning summaries.
 
-[![Dashboard](dashboard.png)](dashboard.png)
+[![Dashboard](dashboard-current-2026-09-30.png)](dashboard-current-2026-09-30.png)
 
 ## Task queue
 
@@ -94,8 +94,37 @@ The planning workspace at a phone viewport.
 
 [![Mobile dashboard](mobile-dashboard.png)](mobile-dashboard.png)
 
+## Assignments organized by course
+
+Group related assignments and their smaller steps by course.
+
+[![Assignments organized by course](tasks-by-course.png)](tasks-by-course.png)
+
+## Reschedule from the task menu
+
+Choose a new planned start without changing the deadline.
+
+[![Reschedule from the task menu](rescheduling.png)](rescheduling.png)
+
+## Completed work
+
+Finished assignments stay separate from the active queue, with recorded time and history.
+
+[![Completed work](completed-tasks.png)](completed-tasks.png)
+
+## Select multiple tasks
+
+Select tasks together before reviewing what will be deleted.
+
+[![Select multiple tasks](bulk-selection.png)](bulk-selection.png)
+
+## Planner setup
+
+Choose education context, study budget, timezone, and workspace defaults.
+
+[![Planner setup](onboarding.png)](onboarding.png)
+
 ## Recreate the gallery
 
-The capture script lives in the public [application repository](https://github.com/JVijay08/StudentSuccess/blob/main/scripts/capture_project_media.py).
-It uses a disposable in-memory database, never production accounts. Generated
-sample history illustrates features; it is not evidence of measured student outcomes.
+See the [capture script in the main repository](https://github.com/JVijay08/StudentSuccess/blob/main/scripts/capture_project_media.py).
+It uses isolated synthetic data and does not access production accounts.
